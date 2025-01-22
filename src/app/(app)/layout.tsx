@@ -6,7 +6,7 @@ export default function AppLayout({ children }: PropsWithChildren) {
 	return (
 		<SidebarProvider>
 			<AppSidebar />
-			<main>{children}</main>
+			<main className="flex-1">{children}</main>
 		</SidebarProvider>
 	);
 }
