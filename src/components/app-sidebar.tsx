@@ -8,12 +8,16 @@ import {
 	SidebarGroup,
 	SidebarGroupContent,
 	SidebarGroupLabel,
+	SidebarHeader,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import Profile from "./profile";
+import { ThemeButton } from "./theme-provider";
+import { buttonVariants } from "./ui/button";
 
 // Menu items.
 const items = [
@@ -53,6 +57,18 @@ export async function AppSidebar() {
 
 	return (
 		<Sidebar>
+			<SidebarHeader className="flex items-center justify-between flex-row">
+				<Link
+					href="/"
+					className={buttonVariants({
+						variant: "ghost",
+						className: "font-semibold text-xl w-full !justify-start",
+					})}
+				>
+					GenDoc.
+				</Link>
+				<ThemeButton />
+			</SidebarHeader>
 			<SidebarContent>
 				<SidebarGroup>
 					<SidebarGroupLabel>Application</SidebarGroupLabel>

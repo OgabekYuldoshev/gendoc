@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import RootProvider from "./provider";
 
@@ -27,14 +28,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<RootProvider>
-					<NextTopLoader />
-					{children}
-					<Toaster richColors />
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="dark"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<NextTopLoader />
+						{children}
+						<Toaster richColors />
+					</ThemeProvider>
 				</RootProvider>
 			</body>
 		</html>

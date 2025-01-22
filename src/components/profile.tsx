@@ -9,9 +9,9 @@ import { Button, buttonVariants } from "./ui/button";
 
 const Profile = ({ profile }: { profile: Omit<User, "password"> }) => {
 	const { mutate, isPending } = useMutation({
-		mutationKey: ['logout'],
-		mutationFn: $revokeSession
-	})
+		mutationKey: ["logout"],
+		mutationFn: $revokeSession,
+	});
 	return (
 		<div className="flex items-center flex-row">
 			<Link
@@ -31,9 +31,7 @@ const Profile = ({ profile }: { profile: Omit<User, "password"> }) => {
 				onClick={() => mutate()}
 				disabled={isPending}
 			>
-				{
-					isPending ? <Loader2 className="animate-spin" /> : <LogOut />
-				}
+				{isPending ? <Loader2 className="animate-spin" /> : <LogOut />}
 			</Button>
 		</div>
 	);

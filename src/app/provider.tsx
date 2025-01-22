@@ -5,5 +5,7 @@ import type { PropsWithChildren } from "react";
 const queryClient = new QueryClient();
 
 export default function RootProvider({ children }: PropsWithChildren) {
-    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+	return (
+		<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+	);
 }
