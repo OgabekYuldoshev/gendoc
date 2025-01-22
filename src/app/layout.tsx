@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 
 import "./globals.css";
+import RootProvider from "./provider";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -30,9 +31,11 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<NextTopLoader />
-				{children}
-				<Toaster richColors />
+				<RootProvider>
+					<NextTopLoader />
+					{children}
+					<Toaster richColors />
+				</RootProvider>
 			</body>
 		</html>
 	);
