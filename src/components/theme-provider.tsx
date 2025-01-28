@@ -48,14 +48,14 @@ export function ThemeButton() {
 
 	if (!visible) {
 		return (
-			<Button className="flex-shrink-0" size="icon" disabled>
+			<Button variant="ghost" className="flex-shrink-0" size="icon" disabled>
 				<Loader2 className="animate-spin" />
 			</Button>
 		);
 	}
 
 	return (
-		<Button className="flex-shrink-0" size={"icon"} onClick={toggleTheme}>
+		<Button variant="ghost" className="flex-shrink-0" size={"icon"} onClick={toggleTheme}>
 			{renderIcon}
 		</Button>
 	);
